@@ -60,7 +60,7 @@ export class AutenticacionService {
   }
   IdentificarPersona(usuario: string, clave: string) {
     try {
-      const p = this.personaRepository.findOne({where: {Correo: usuario, Clave: this.EncriptarClave(clave)}})
+      const p = this.personaRepository.findOne({where: {Correo: usuario, Clave: clave}})
       if (p) {
         return p
       }

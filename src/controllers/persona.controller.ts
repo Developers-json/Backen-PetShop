@@ -93,8 +93,9 @@ export class PersonaController {
     })
     if (usuario) {
       if (usuario.Codigo == RecuperClave.codigo) {
-        const claveEncriptada = this.servicioAutenticacion.EncriptarClave(RecuperClave.password)
-        usuario.Clave = claveEncriptada
+        //const claveEncriptada = this.servicioAutenticacion.EncriptarClave(RecuperClave.password)
+        usuario.Clave = RecuperClave.password
+        usuario.Codigo = " "
         await this.personaRepository.updateById(usuario.id, usuario)
         //Se notifica al usuario sobre el cambio de la cuenta por correo
         const destino = usuario.Correo
